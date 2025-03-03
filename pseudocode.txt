@@ -1,0 +1,25 @@
+day = day user selects
+time = time user selects
+
+
+read known_rooms.txt to make room list
+if (day == dbDay1 || day == dbDay2 || day == dbDay3) && (time > dbStart && time < dbEnd)
+
+	return room
+
+SQL: 
+WHERE (day = dbDay1 OR day = dbDay2 OR day = dbDay3)
+AND (time > dbStart AND time < dbEnd);
+
+
+
+display room list
+
+
+
+if the day selected is equal to one of the days that the room is occupied
+as well as
+greater than start time and less than end time (so within the range of the class)
+
+then the room is NOT free
+
