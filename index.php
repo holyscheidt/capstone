@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<?php
+include 'db.php';  // or require 'db_connection.php';
+?>
+
 <html lang="en">
 <head>
     <title>Maryville Room Schedule<</title>
@@ -29,25 +33,34 @@
     <button type="submit">Submit</button>
 </form>
 
+<?php
 
+    $sql = "SELECT className, day1, day2, day3, startTime, endTime, room FROM roomSchedule";
+    $result = $conn->query($sql);
+?>  
 
     <table>
     <tr>
         <th>Classroom Number</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Day of Week</th>
+        <th>Day 1</th>
+        <th>Day 2</th>
+        <th>Day 3</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Room Number</th>
     </tr>
 
 
     
     <?php while ($row = $result->fetch_assoc()) { ?>
     <tr>
-        <td><?php echo $row["day_of_week"]; ?></td>
-        <td><?php echo $row["classroom_number"]; ?></td>
-        <td><?php echo $row["date"]; ?></td>
-        <td><?php echo $row["start_time"]; ?></td>
-        <td><?php echo $row["end_time"]; ?></td>
+        <td><?php echo $row["className"]; ?></td>
+        <td><?php echo $row["day1"]; ?></td>
+        <td><?php echo $row["day2"]; ?></td>
+        <td><?php echo $row["day3"]; ?></td>
+        <td><?php echo $row["startTime"]; ?></td>
+        <td><?php echo $row["endTime"]; ?></td>
+        <td><?php echo $row["room"]; ?></td>
     </tr>
     <?php } ?>
 
