@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-include 'db.php';  // or require 'db_connection.php';
+include 'db.php';  // connect to database
 ?>
 
 <html lang="en">
@@ -11,8 +11,11 @@ include 'db.php';  // or require 'db_connection.php';
 <body>
 <h1>Maryville Room Schedule</h1>
 
-<form action="process_day_time.php" method="post">
+<form action="process_day_time.php" method="post">  
+    <!-- calls the processing php file that does the search -->
     <label for="day">Select Day of the Week:</label>
+
+    <!-- select menu-->
     <select id="day" name="day" required>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
@@ -26,6 +29,7 @@ include 'db.php';  // or require 'db_connection.php';
     <br><br>
 
     <label for="time">Select Time:</label>
+    <!-- time input -->
     <input type="time" id="time" name="time" required>
 
     <br><br>
@@ -35,6 +39,7 @@ include 'db.php';  // or require 'db_connection.php';
 
 <?php
 
+    //displaying full table
     $sql = "SELECT className, day1, day2, day3, startTime, endTime, room FROM roomSchedule";
     $result = $conn->query($sql);
 ?>  
