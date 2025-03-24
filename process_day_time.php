@@ -1,13 +1,14 @@
 <?php
 
-include 'db.php';
+include 'db.php'; //attaches database connection file
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userDay = $_POST["day"];   // Get the selected day
-    $userTime = $_POST["time"]; // Get the selected time
+    $userDay = $_POST["day"];   // post the selected day
+    $userTime = $_POST["time"]; // post the selected time
 
     echo "You selected: " . htmlspecialchars($userDay) . " at " . htmlspecialchars($userTime) . "<br>";
 
+    //submissions are in full days so they need to be changed to abbreviations in order to search the database
     switch ($userDay) {
         case "Monday":
             $userDay = "M";
@@ -34,13 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Invalid day";
     }
 
-    // Read the room list from the file (known_rooms.txt)
+    // read the room list to compare against later
     $rooms = file('known_rooms.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    // Convert lines into a single array of rooms
+    // make an array with all the rooms
     $rooms = array_map('trim', explode(',', implode(',', $rooms)));
 
-    // Query to find rooms that match the conditions
+    // find all the rooms that are taken at the time that the user searched for
     $sql = "SELECT * FROM roomschedule WHERE 
                 (day1 = ? OR day2 = ? OR day3 = ?) 
                 AND (? BETWEEN startTime AND endTime)";
@@ -59,18 +60,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Store booked rooms in an array
+    //store the taken rooms in another array
     $bookedRooms = [];
     while ($row = $result->fetch_assoc()) {
         $bookedRooms[] = $row['room'];
     }
 
 
-    // Close the connection
+    //close connection
     $stmt->close();
     $conn->close();
 
-    // Remove booked rooms from the known_rooms list
+    //subtract the taken rooms from the array of all the rooms
     $availableRooms = array_diff($rooms, $bookedRooms);
 
 
