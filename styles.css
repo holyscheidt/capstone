@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+
+/* General body styling */
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: #990000; /* Dark red text */
+    margin: 20px;
+}
+
+/* Style for the heading */
+h1 {
+    color: #cc0000; /* Bright red */
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+    background-color: #fff5f5; /* Very light red */
+    border: 2px solid #cc0000; /* Red border */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    color: #990000;
+}
+
+/* Select and input styling */
+select, input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cc0000;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Button styling */
+button {
+    background-color: #cc0000; /* Red background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #990000; /* Darker red on hover */
+}
+
+.button {
+    display: inline-block; /* Makes the <a> behave like a button */
+    background-color: #cc0000; /* Red background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin-top: 20px;
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em; /* Font size */
+    text-align: center; /* Center text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove border */
+}
+
+.button:hover {
+    background-color: #990000; /* Darker red on hover */
+}
+
+/* Style for the date input */
+input[type="date"] {
+    width: 80%; /* Set a fixed width */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cc0000;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Style for the time input */
+input[type="time"] {
+    width: 80%; /* Set a fixed width */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cc0000;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+
+/* Universal Header Styling */
+.header {
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Vertically center items */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Add some padding */
+    margin-bottom: 20px;
+
+
+}
+
+/* Logo Styling */
+.header-logo {
+    height: 50px; /* Set the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Title Styling */
+.header-title {
+    font-size: 1.5em; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+}
+
+/* Optional: Make the header sticky */
+.universal-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+
